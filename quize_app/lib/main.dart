@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'firstPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,29 +41,66 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text('Kadai07_IH13B_04'),
+        backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Container(
+                width: size.width * 0.8,
+                height: size.height * 0.2,
+                child: Center(
+                  child: Text(
+                    'クイズアプリ',
+                    style: TextStyle(fontSize: 50),
+                  ),
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Container(
+                width: size.width * 0.8,
+                height: size.height * 0.2,
+                child: Center(
+                  child: Text(
+                    '制作者:石橋慶太',
+                    style: TextStyle(fontSize: 25),
+                  ),
+                ),
+              ),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Container(
+                width: size.width * 0.5,
+                height: size.height * 0.1,
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => firstPage()),
+                      );
+                    },
+                    child: Text(
+                      'スタート',
+                      style: TextStyle(fontSize: 20),
+                    )),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
