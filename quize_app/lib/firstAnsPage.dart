@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quize_app/const/const.dart';
 import 'package:quize_app/secondPage.dart';
 
 class firstAnsPage extends StatefulWidget {
@@ -94,6 +95,9 @@ class _firstAnsPageState extends State<firstAnsPage> {
           ),
           ElevatedButton(
               onPressed: () {
+                if (widget.ans == 'サラダ油味') {
+                  result['first'] = true;
+                }
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => secondPage()),

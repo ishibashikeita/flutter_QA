@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quize_app/firstAnsPage.dart';
 import 'package:quize_app/secondAnsPage%20.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class secondPage extends StatefulWidget {
   const secondPage({super.key});
@@ -71,13 +72,20 @@ class _secondPageState extends State<secondPage> {
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => secondAnsPage(
-                            ans: _gValue,
-                          )),
-                );
+                if (_gValue != '') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => secondAnsPage(
+                              ans: _gValue,
+                            )),
+                  );
+                } else {
+                  Fluttertoast.showToast(
+                    msg: '回答を選択してください。',
+                    fontSize: 18,
+                  );
+                }
               },
               child: Text('決定！'))
         ],

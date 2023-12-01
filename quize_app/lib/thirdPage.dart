@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quize_app/firstAnsPage.dart';
 import 'package:quize_app/secondAnsPage%20.dart';
 import 'package:quize_app/thirdAnsPage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class thirdPage extends StatefulWidget {
   thirdPage({super.key});
@@ -72,13 +73,20 @@ class _thirdPageState extends State<thirdPage> {
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => thirdAnsPage(
-                            ans: _gValue,
-                          )),
-                );
+                if (_gValue != '') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => thirdAnsPage(
+                              ans: _gValue,
+                            )),
+                  );
+                } else {
+                  Fluttertoast.showToast(
+                    msg: '回答を選択してください。',
+                    fontSize: 18,
+                  );
+                }
               },
               child: Text('決定！'))
         ],

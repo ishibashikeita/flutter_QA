@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quize_app/const/const.dart';
 import 'package:quize_app/thirdPage.dart';
 
 class secondAnsPage extends StatefulWidget {
@@ -94,6 +95,9 @@ class _secondAnsPageState extends State<secondAnsPage> {
           ),
           ElevatedButton(
               onPressed: () {
+                if (widget.ans == '汚物に触れないようにすること') {
+                  result['second'] = true;
+                }
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => thirdPage()),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quize_app/const/const.dart';
+import 'package:quize_app/result.dart';
 
 class thirdAnsPage extends StatefulWidget {
   thirdAnsPage({super.key, required this.ans});
@@ -93,12 +95,15 @@ class _thirdAnsPageState extends State<thirdAnsPage> {
           ),
           ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => secondPage()),
-                // );
+                if (widget.ans == 'ハチミツ') {
+                  result['third'] = true;
+                }
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => resultPage()),
+                );
               },
-              child: Text('次の問題へ！'))
+              child: Text('結果発表！！'))
         ],
       ),
     );
